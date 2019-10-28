@@ -1,1 +1,141 @@
-\section{ Relative motion in nbody:nbody U gravitational attraction. dl/dt  }\label{sec:q1}    
+\section{ Relative motion in nbody: nbody U gravitational attraction. dI/dt  }\label{sec:q1}
+This entire question is based on Chapter 2: Many-body problem in the reader by K. Wakker.    
+
+\subsection{a. Equations of motion}
+
+First, it's important to state the assumptions made.
+\begin{itemize}
+\item All masses are considered as point masses
+\item Only gravitational forces caused by the n bodies occur (no external forces, no other bodies outside the n-body system)
+\end{itemize}
+For the equations of motion, Newton's second law and Newton's law of gravitation are needed. First consider Newton's second law
+\begin{equation}
+\vec{F} = m \vec{a}
+\end{equation}
+Expressed for body i
+\begin{equation}
+\vec{F}_i = m_i \ddot{\vec{r}}_i
+\label{a}
+\end{equation}
+Next, consider Newton's law of gravitation
+\begin{equation}
+\vec{F}_i = -G\frac{m_i m_j}{r_{ij}^3}\vec{r}_{ij}
+\label{b}
+\end{equation}
+Substituting eq. \ref{a} into eq. \ref{b} yields the following expression:
+\begin{equation}
+m_i \ddot{\vec{r}}_i = G\Sigma_{i \neq j}^n \frac{m_i m_j}{r_{ij}^3}\vec{r}_{ij}
+\end{equation}
+\subsection{b. Gravitational field strength}
+Consider the equation for gravitational field strength
+\begin{equation}
+U_i = -\Sigma_{j \neq i} G \frac{m_j}{m_{ij}} + U_{i0}
+\end{equation}
+Now consider again Newton's law of gravitation (eq. \ref{b}) and divide it by mass:
+\begin{equation}
+\frac{\vec{F}}{m_i} = \vec{g}_i = \Sigma_{j \neq i} G \frac{m_j}{r_{ij}^3}\vec{r}_{ij}
+\end{equation}
+Field strength is also expressed by
+\begin{equation}
+\vec{g}_i = - \vec{\nabla}_i u_i
+\end{equation}
+And therefore 
+\begin{equation}
+U_i = -g_i + U_{i0} = -\Sigma_{j \neq i} G \frac{m_j}{r_{ij}^3}\vec{r}_{ij} + U_{i0}
+\end{equation}
+It is important to note that the potential U\textsubscript i is a scalar function.
+\subsection{c. Field strength conservative or not?}
+The field strength changes over time since a potential is only described at a certain position in the inertial reference frame. This also means that the total energy of the body described by the potential is subject to change. The sum of kinetic and potential energy of one body is therefore also not constant, however for the entire system it is constant.
+\subsection{d. Integrals of motion}
+The first term on the left hand side of (1) in the exam is representative of the kinetic energy E\textsubscript k, the second term on the left hand side is representative of the potential energy E\textsubscript p. The sum of these terms is constant for the system:
+\begin{equation}
+E_k + E_p = C
+\label{c}
+\end{equation}
+Where
+\begin{equation}
+E_k = \frac{1}{2} \Sigma_i m_i V_i^2
+\end{equation}
+And
+\begin{equation}
+E_p = - \frac{1}{2} G \Sigma_i \Sigma_{j \neq i} \frac{m_i m_j}{r_{ij}}
+\end{equation}
+\subsection{e. Close approach of two or more bodies}
+When two or more bodies have a close approach, the term \textit{r\textsubscript{ij}} Approaches zero and thus the magnitude of the potential energy increases. Due to conservation of energy, the kinetic energy has to increase in turn, which translates to a high velocity of the bodies. This velocity can reach a significant magnitude so that an escape of the system by one or more of the bodies may be possible.
+\subsection{f. Stability condition}
+Eq. \ref{c} is now expressed as:
+\begin{equation}
+E_k = C - E_p
+\end{equation}
+Therefore:
+\begin{equation}
+\frac{d^2I}{dt^2} = 4C - 4E_p + 2E_p = 4C - 2E_p
+\label{d}
+\end{equation}
+Simultaneously,
+\begin{equation}
+\frac{d^2I}{dt^2} = 2C + 2E_k
+\label{e}
+\end{equation}
+Therefore, the term representing potential energy is always negative and the term representing kinetic energy is always positive.
+Considering the polar moment of inertia I:
+\begin{equation}
+I = \Sigma_i m_i \vec{r}_i \cdot \vec{r}_i = \Sigma_i m_i r_i^2
+\end{equation}
+Now consider the fact that for stability, the growth of I may not be unbounded. First consider what happens for C$>$0 by looking at eq. \ref{d} and \ref{e}:
+\begin{equation}
+\frac{d^2I}{dt^2} > 0
+\end{equation}
+This means that the first derivative of I may at some point become positive, even if it is negative, resulting in unbounded growth of I.
+Now let's consider the case where C$<$0: Now, considering eq. \ref{d} and \ref{e}, the second derivative of I may either be positive or negative.
+In case where
+\begin{equation}
+\frac{d^2I}{dt^2} > 0
+\end{equation}
+The system is unstable as discussed earlier.
+In case where
+\begin{equation}
+\frac{d^2I}{dt^2} < 0
+\end{equation}
+The system is stable. However, since in this case of C$<$ 0 the sign of the second derivative of I is subject to change, stability is still possible when the first and second derivative of I are varying locally such that unbounded growth is not possible. For example: as long as the first derivative of I is negative while the second derivative of I is positive, the system is still stable.
+\subsection{g. Long-term stability}
+Consider again the second derivative of the polar moment of inertia
+\begin{equation}
+\frac{d^2I}{dt^2} = 4E_k + 2E_p
+\end{equation}
+Now consider its average over time from t0 to t1 where t0 = 0.
+\begin{equation}
+\frac{1}{t_1} \int_{t_0}^{t_1} \frac{d^2I}{dt^2}dt = \frac{4}{t_1} \int_{t_0}^{t_1} E_k dt + \frac{2}{t_1} \int_{t_0}^{t_1} E_p dt
+\end{equation}
+Thus
+\begin{equation}
+\Bigg[\frac{1}{t_1} \frac{dI}{dt}\Bigg]_{t_0}^{t_1} = 4 \tilde{E_k} + 2 \tilde{E_p}
+\label{f}
+\end{equation}
+Now substitute the first derivative of the polar moment of inertia
+\begin{equation}
+\frac{dI}{dt} = 2 \Sigma_i m_i \vec{r}_i \cdot \vec{V}_i = 2 \Sigma_i m_i \vec{r}_i \cdot \dot{\vec{r}}_i 
+\end{equation}
+Into eq. \ref{f}
+\begin{equation}
+\frac{1}{t_1} \Bigg[2 \Sigma_i m_i \vec{r}_i \cdot \dot{\vec{r}}_i\Bigg]_{t_0}^{t_1} = 4 \tilde{E_k} + 2 \tilde{E_p}
+\end{equation}
+And
+\begin{equation}
+\frac{1}{t_1} \Bigg[\Sigma_i m_i \vec{r}_i \cdot \dot{\vec{r}}_i\Bigg]_{t_0}^{t_1} = 2 \tilde{E_k} + \tilde{E_p}
+\end{equation}
+The conditions for stability are that no escapes and collisions occur. Therefore, distance and velocity always have to be finite and thus over large time intervals, the left-hand term will approach zero:
+\begin{equation}
+0 = 2 \tilde{E_k} + \tilde{E_p}
+\label{g}
+\end{equation}
+Recall from eq. \ref{c} the total energy of the system and consider its average:
+\begin{equation}
+\tilde{E_k} + \tilde{E_p} = C
+\label{h}
+\end{equation}
+Now substituting \ref{g} into \ref{h}:
+\begin{equation}
+\tilde{E_k} = -C = -\frac{1}{2} \tilde{E_p}
+\end{equation}
+Q.E.D. the Virial theorem.
